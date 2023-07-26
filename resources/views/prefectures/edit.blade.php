@@ -55,7 +55,7 @@
             <button type="submit" class="btn btn-outline-secondary me-3">更新</button>
         </div>
     </form>
-    <form action="/prefectures/{{ $prefecture->id }}">
+    <form action="/prefectures/{{ $prefecture->id }}" method="post">
         <input type="hidden" name="_method" value="DELETE" />
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <button type="submit" class="btn btn-outline-danger w-100" onclick="return confirm('削除しますか？')">削除</button>
