@@ -5,7 +5,8 @@
     "dev": "vite",
     "lint": "eslint --ext .js,.ts .",
     "lint:fix": "eslint --fix --ext .js,.ts .",
-    "build": "vite build"
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.52.0",
