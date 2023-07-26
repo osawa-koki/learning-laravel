@@ -13,6 +13,7 @@ class PrefecturesTableSeeder extends Seeder
     {
         $prefectures = [
             [
+                'id' => 1,
                 'name' => '北海道',
                 'capital' => '札幌市',
                 'population' => 5_139_522,
@@ -20,6 +21,7 @@ class PrefecturesTableSeeder extends Seeder
                 'visited' => true,
             ],
             [
+                'id' => 2,
                 'name' => '青森県',
                 'capital' => '青森市',
                 'population' => 1_204_372,
@@ -27,6 +29,7 @@ class PrefecturesTableSeeder extends Seeder
                 'visited' => true,
             ],
             [
+                'id' => 3,
                 'name' => '岩手県',
                 'capital' => '盛岡市',
                 'population' => 1_180_512,
@@ -35,7 +38,7 @@ class PrefecturesTableSeeder extends Seeder
             ],
         ];
         foreach ($prefectures as $prefecture) {
-            \App\Models\Prefecture::create($prefecture);
+            \App\Models\Prefecture::updateOrCreate(['id' => $prefecture['id']], $prefecture);
         }
     }
 }
