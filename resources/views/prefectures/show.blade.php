@@ -32,7 +32,7 @@
             </tr>
             <tr>
                 <th>人口密度</th>
-                <td>{{ $prefecture->population / $prefecture->area }}</td>
+                <td>{{ float_prettify($prefecture->population / $prefecture->area) }}</td>
             </tr>
             <tr>
                 <th>訪問済み？</th>
