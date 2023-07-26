@@ -14,12 +14,12 @@
         <table class="table text-left">
             <tr>
                 <th>県庁所在地</th>
-                <td>{{ $prefecture->capital }}</td>
+                <td>$prefecture->capital</td>
             </tr>
             <tr>
                 <th>説明</th>
                 <td>
-                    <textarea name="description" class="form-control" rows="5">{{ $prefecture->description }}</textarea>
+                    <textarea name="description" class="form-control" rows="5" disabled>{{ $prefecture->description }}</textarea>
                 </td>
             </tr>
             <tr>
@@ -37,14 +37,16 @@
             <tr>
                 <th>訪問済み？</th>
                 <td>
-                    <input type="hidden" name="visited" value="0" />
-                    <input type="checkbox" name="visited" value="1" {{ $prefecture->visited ? 'checked' : '' }} />
+                @if ($prefecture->visited)
+                <span class="badge bg-primary">🟢 訪問済</span>
+                @else
+                <span class="badge bg-danger">🟡 未訪問</span>
+                @endif
                 </td>
             </tr>
         </table>
-        <div class="d-flex">
-            <a href="/prefectures/{{ $prefecture->id }}" class="btn btn-outline-info me-3">詳細</a>
-            <button type="submit" class="btn btn-outline-secondary me-3">更新</button>
+        <div class="d-block">
+            <a href="/prefectures/{{ $prefecture->id }}/edit" class="btn btn-outline-secondary">編集</a>
         </div>
     </form>
 </div>

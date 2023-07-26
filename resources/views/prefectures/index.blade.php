@@ -30,5 +30,5 @@
         </tr>
         @endforeach
     </table>
-    <div><a href="/prefectures/create" class="btn btn-default">新規作成</a></div>
+    <div><a href="/prefectures/create" class="btn btn-outline-secondary">新規作成</a></div>
 </div>
