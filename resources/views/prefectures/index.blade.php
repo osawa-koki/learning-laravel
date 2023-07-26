@@ -18,8 +18,8 @@
             <td><a href="/prefectures/{{ $prefecture->id }}">{{ $prefecture->name }}</a></td>
             <td>{{ $prefecture->capital }}</td>
             <td>{{ description_shorten($prefecture->description) }}</td>
-            <td>{{ number_prettify($prefecture->population )}}</td>
-            <td>{{ number_prettify($prefecture->area) }}</td>
+            <td>{{ integer_prettify($prefecture->population )}}</td>
+            <td>{{ integer_prettify($prefecture->area) }}</td>
             <td>
                 @if ($prefecture->visited)
                 <span class="badge bg-primary">🟢 訪問済</span>

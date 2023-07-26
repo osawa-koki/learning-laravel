@@ -24,11 +24,11 @@
             </tr>
             <tr>
                 <th>人口</th>
-                <td>{{ number_prettify($prefecture->population) }}</td>
+                <td>{{ integer_prettify($prefecture->population) }}</td>
             </tr>
             <tr>
                 <th>面積</th>
-                <td>{{ number_prettify($prefecture->area) }}</td>
+                <td>{{ integer_prettify($prefecture->area) }}</td>
             </tr>
             <tr>
                 <th>人口密度</th>

@@ -31,7 +31,7 @@
     },
     "files": [
       "app/helpers/description_shorten.php",
-      "app/Helpers/number_prettify.php"
+      "app/Helpers/integer_prettify.php"
     ]
   },
   "autoload-dev": {
