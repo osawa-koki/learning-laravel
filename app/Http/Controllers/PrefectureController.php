@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prefecture;
-use Illuminate\Http\Request;
 use App\Http\Requests\PrefectureRequest;
+use App\Models\Prefecture;
 
 class PrefectureController extends Controller
 {
