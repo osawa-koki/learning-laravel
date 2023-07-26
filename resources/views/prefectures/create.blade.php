@@ -7,7 +7,8 @@
     <div class="d-flex my-3">
         <a href="/prefectures" class="btn btn-outline-primary me-3">一覧画面</a>
     </div>
-    <form action="/prefectures/create" method="post">
+    <form action="/prefectures" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <table class="table text-left">
             <tr>
                 <th>名前</th>
