@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello-world', function() {
+    return 'Hello, World!';
+});
+
+Route::get('/hello/{name}', function($name) {
+    return "Hello, {$name}!";
+});
+
+Route::redirect('/prefectures', '/prefecture');
+Route::resource('prefecture', 'PrefectureController');
