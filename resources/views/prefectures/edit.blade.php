@@ -45,6 +45,11 @@
         <div class="d-flex">
             <a href="/prefectures/{{ $prefecture->id }}" class="btn btn-outline-info me-3">詳細</a>
             <button type="submit" class="btn btn-outline-secondary me-3">更新</button>
+            <form action="/prefectures/{{ $prefecture->id }}">
+                <input type="hidden" name="_method" value="DELETE" />
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                <button type="submit" class="btn btn-outline-danger" onclick="return confirm('削除しますか？')">削除</button>
+            </form>
         </div>
     </form>
 </div>
