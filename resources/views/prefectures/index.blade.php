@@ -1,8 +1,8 @@
 <head>
     <title>都道府県一覧</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<div class="container ops-main">
+<div class="container mt-5">
     <h1>都道府県一覧</h1>
     <table class="table text-center">
         <tr>
@@ -11,7 +11,7 @@
             <th class="text-center">説明</th>
             <th class="text-center">人口</th>
             <th class="text-center">面積</th>
-            <th class="text-center">訪問済み</th>
+            <th class="text-center">訪問済み？</th>
         </tr>
         @foreach($prefectures as $prefecture)
         <tr>
@@ -20,7 +20,13 @@
             <td>{{ $prefecture->description }}</td>
             <td>{{ $prefecture->population }}</td>
             <td>{{ $prefecture->area }}</td>
-            <td>{{ $prefecture->visited }}</td>
+            <td>
+                @if ($prefecture->visited)
+                <span class="badge bg-primary">🟢 訪問済</span>
+                @else
+                <span class="badge bg-danger">🟡 未訪問</span>
+                @endif
+            </td>
         </tr>
         @endforeach
     </table>

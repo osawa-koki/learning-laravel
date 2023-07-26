@@ -12,4 +12,13 @@ class PrefectureController extends Controller
 
         return view('prefectures/index', compact('prefectures'));
     }
+
+    public function edit($id)
+    {
+        // DBよりURIパラメータと同じIDを持つBookの情報を取得
+        $prefecture = Prefecture::findOrFail($id);
+
+        // 取得した値をビュー「book/edit」に渡す
+        return view('prefectures/edit', compact('prefecture'));
+    }
 }
