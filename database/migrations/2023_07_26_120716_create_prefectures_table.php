@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('population');
             $table->integer('area');
             $table->boolean('visited')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
