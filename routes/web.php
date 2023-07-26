@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PrefectureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,4 @@ Route::get('/hello/{name}', function ($name) {
     return "Hello, {$name}!";
 });
 
-Route::redirect('/prefectures', '/prefecture');
-Route::resource('prefecture', 'PrefectureController');
+Route::resource('prefectures', PrefectureController::class);
