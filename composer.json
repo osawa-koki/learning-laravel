@@ -28,7 +28,12 @@
       "App\\": "app/",
       "Database\\Factories\\": "database/factories/",
       "Database\\Seeders\\": "database/seeders/"
-    }
+    },
+    "files": [
+      "app/Helpers/description_shorten.php",
+      "app/Helpers/integer_prettify.php",
+      "app/Helpers/float_prettify.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
