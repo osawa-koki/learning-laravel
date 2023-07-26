@@ -19,7 +19,7 @@
             <tr>
                 <th>説明</th>
                 <td>
-                    <textarea name="description" class="form-control" rows="5" disabled>{{ $prefecture->description }}</textarea>
+                    <textarea name="description" class="form-control" rows="5" readonly>{{ $prefecture->description }}</textarea>
                 </td>
             </tr>
             <tr>
