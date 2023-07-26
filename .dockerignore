@@ -1,0 +1,6 @@
+.github/
+.vscode/
+bootstrap/cache/*
+!bootstrap/cache/.gitingore
+node_modules/
+vendor/
