@@ -30,7 +30,8 @@
       "Database\\Seeders\\": "database/seeders/"
     },
     "files": [
-      "app/helpers/description_shorten.php"
+      "app/helpers/description_shorten.php",
+      "app/Helpers/number_prettify.php"
     ]
   },
   "autoload-dev": {
