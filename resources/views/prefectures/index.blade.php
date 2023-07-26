@@ -17,7 +17,7 @@
         <tr>
             <td><a href="/prefectures/{{ $prefecture->id }}">{{ $prefecture->name }}</a></td>
             <td>{{ $prefecture->capital }}</td>
-            <td>{{ $prefecture->description }}</td>
+            <td>{{ description_shorten($prefecture->description) }}</td>
             <td>{{ $prefecture->population }}</td>
             <td>{{ $prefecture->area }}</td>
             <td>
