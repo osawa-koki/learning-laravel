@@ -17,11 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello-world', function() {
+Route::get('/hello-world', function () {
     return 'Hello, World!';
 });
 
-Route::get('/hello/{name}', function($name) {
+Route::get('/hello/{name}', function ($name) {
     return "Hello, {$name}!";
 });
 
