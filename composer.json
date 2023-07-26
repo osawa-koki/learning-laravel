@@ -30,7 +30,7 @@
       "Database\\Seeders\\": "database/seeders/"
     },
     "files": [
-      "app/helpers/description_shorten.php",
+      "app/Helpers/description_shorten.php",
       "app/Helpers/integer_prettify.php",
       "app/Helpers/float_prettify.php"
     ]
