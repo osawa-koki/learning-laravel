@@ -11,7 +11,7 @@ class PrefectureRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class PrefectureRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:10',
+            'capital' => 'required|string|max:10',
+            'description' => 'nullable|string|max:100',
+            'population' => 'required|integer|min:0',
+            'area' => 'required|integer|min:0',
+            'visited' => 'required|boolean',
         ];
     }
 }

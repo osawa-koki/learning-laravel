@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Prefecture;
 use Illuminate\Http\Request;
+use App\Http\Requests\PrefectureRequest;
 
 class PrefectureController extends Controller
 {
@@ -26,7 +27,7 @@ class PrefectureController extends Controller
         return view('prefectures/create');
     }
 
-    public function store(Request $request)
+    public function store(PrefectureRequest $request)
     {
         $book = new Prefecture();
         $book->name = $request->name;
@@ -40,10 +41,14 @@ class PrefectureController extends Controller
         return redirect("/prefectures/{$book->id}");
     }
 
-    public function update(Request $request, $id)
+    public function update(PrefectureRequest $request, $id)
     {
         $prefecture = Prefecture::findOrFail($id);
+        $prefecture->name = $request->name;
+        $prefecture->capital = $request->capital;
         $prefecture->description = $request->description;
+        $prefecture->population = $request->population;
+        $prefecture->area = $request->area;
         $prefecture->visited = $request->visited;
         $prefecture->save();
 

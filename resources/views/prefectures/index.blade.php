@@ -15,7 +15,7 @@
         </tr>
         @foreach($prefectures as $prefecture)
         <tr>
-            <td><a href="/prefectures/{{ $prefecture->id }}/edit">{{ $prefecture->name }}</a></td>
+            <td><a href="/prefectures/{{ $prefecture->id }}">{{ $prefecture->name }}</a></td>
             <td>{{ $prefecture->capital }}</td>
             <td>{{ $prefecture->description }}</td>
             <td>{{ $prefecture->population }}</td>
