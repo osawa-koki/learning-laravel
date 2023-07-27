@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PrefectureSearcher
 {
-    private $name;
+    private ?string $name = null;
 
     private $capital;
 
@@ -31,7 +31,7 @@ class PrefectureSearcher
 
     public function __construct(Request $request)
     {
-        $this->name = $request->name;
+        if ($request->name) $this->name = $request->name;
         $this->capital = $request->capital;
         $this->description = $request->description;
         $this->populationMin = $request->populationMin;
