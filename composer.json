@@ -32,7 +32,8 @@
     "files": [
       "app/Helpers/description_shorten.php",
       "app/Helpers/integer_prettify.php",
-      "app/Helpers/float_prettify.php"
+      "app/Helpers/float_prettify.php",
+      "app/Helpers/add_query_params.php"
     ]
   },
   "autoload-dev": {

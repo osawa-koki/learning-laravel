@@ -24,7 +24,9 @@ enum Order
 class PrefectureService
 {
     private OrderBy $orderBy = OrderBy::Id;
+
     private Order $order = Order::Asc;
+
     private ?string $name = null;
 
     private ?string $capital = null;
@@ -49,6 +51,23 @@ class PrefectureService
 
     public function __construct(Request $request)
     {
+        if ($request->orderBy) {
+            $this->orderBy = match ($request->orderBy) {
+                'name' => OrderBy::Name,
+                'capital' => OrderBy::Capital,
+                'population' => OrderBy::Population,
+                'area' => OrderBy::Area,
+                'population_density' => OrderBy::PopulationDensity,
+                default => OrderBy::Id,
+            };
+        }
+        if ($request->order) {
+            $this->order = match ($request->order) {
+                'asc' => Order::Asc,
+                'desc' => Order::Desc,
+                default => Order::Asc,
+            };
+        }
         if ($request->name) {
             $this->name = $request->name;
         }

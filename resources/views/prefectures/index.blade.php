@@ -7,16 +7,146 @@
     <h1>都道府県一覧</h1>
     <table class="table text-center">
         <tr>
-            <th class="text-center">名前</th>
-            <th class="text-center">県庁所在地</th>
-            <th class="text-center">説明</th>
-            <th class="text-center">人口</th>
-            <th class="text-center">面積</th>
-            <th class="text-center">人口密度</th>
-            <th class="text-center">訪問済み？</th>
+            <th>
+                <div class="d-flex justify-content-around align-items-center">
+                    <span>ID</span>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'id',
+                            'order' => 'asc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'id',
+                            'order' => 'desc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                </div>
+            </th>
+            <th class="text-center">
+                <div class="d-flex justify-content-around align-items-center">
+                    <span>都道府県名</span>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'name',
+                            'order' => 'asc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'name',
+                            'order' => 'desc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                </div>
+            </th>
+            <th class="text-center">
+                <div class="d-flex justify-content-around align-items-center">
+                    <span>県庁所在地</span>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'capital',
+                            'order' => 'asc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'capital',
+                            'order' => 'desc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                </div>
+            </th>
+            <th class="text-center">
+                <div class="d-flex justify-content-around align-items-center">
+                    <span>説明</span>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'description',
+                            'order' => 'asc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'description',
+                            'order' => 'desc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                </div>
+            </th>
+            <th class="text-center">
+                <div class="d-flex justify-content-around align-items-center">
+                    <span>人口</span>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'population',
+                            'order' => 'asc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'population',
+                            'order' => 'desc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                </div>
+            </th>
+            <th class="text-center">
+                <div class="d-flex justify-content-around align-items-center">
+                    <span>面積</span>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'area',
+                            'order' => 'asc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'area',
+                            'order' => 'desc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                </div>
+            </th>
+            <th class="text-center">
+                <div class="d-flex justify-content-around align-items-center">
+                    <span>人口密度</span>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'population_density',
+                            'order' => 'asc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'population_density',
+                            'order' => 'desc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                </div>
+            </th>
+            <th class="text-center">
+                <div class="d-flex justify-content-around align-items-center">
+                    <span>訪問済み？</span>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'visited',
+                            'order' => 'asc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    <a href="{{ add_query_params(
+                        [
+                            'orderBy' => 'visited',
+                            'order' => 'desc',
+                        ]
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                </div>
+            </th>
         </tr>
         @foreach($prefectures as $prefecture)
         <tr>
+            <td>{{ $prefecture->id }}</td>
             <td><a href="/prefectures/{{ $prefecture->id }}">{{ $prefecture->name }}</a></td>
             <td>{{ $prefecture->capital }}</td>
             <td>{{ description_shorten($prefecture->description) }}</td>
