@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                     <th>説明で検索</th>
-                    <td><input type="text" name="description" class="form-control" placeholder="説明で検索" /></td>
+                    <td><input type="text" name="description" class="form-control" placeholder="説明で検索" value="{{ $searchParams['description'] }}" /></td>
                 </tr>
                 <tr>
                     <th>人口で検索 (最低)</th>

@@ -11,7 +11,7 @@ class PrefectureSearcher
 
     private ?string $capital = null;
 
-    private $description;
+    private ?string $description = null;
 
     private $populationMin;
 
@@ -33,7 +33,7 @@ class PrefectureSearcher
     {
         if ($request->name) $this->name = $request->name;
         if ($request->capital) $this->capital = $request->capital;
-        $this->description = $request->description;
+        if ($request->description) $this->description = $request->description;
         $this->populationMin = $request->populationMin;
         $this->populationMax = $request->populationMax;
         $this->areaMin = $request->areaMin;
