@@ -56,8 +56,8 @@
                 <tr>
                     <th>人口で検索 (最低)</th>
                     <td>
-                        <input type="range" name="populationMin" class="form-range" min="0" max="10000000" step="100000" value="0" oninput="document.getElementById('search-population-min').textContent = this.value;" />
-                        <span id="search-population-min">0</span>
+                        <input type="range" name="populationMin" class="form-range" min="0" max="10000000" step="100000" value="{{ $searchParams['populationMin'] }}" oninput="document.getElementById('search-population-min').textContent = this.value;" />
+                        <span id="search-population-min">{{ $searchParams['populationMin'] }}</span>
                     </td>
                 </tr>
                 <tr>
