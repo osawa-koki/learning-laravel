@@ -63,8 +63,8 @@
                 <tr>
                     <th>人口で検索 (最高)</th>
                     <td>
-                        <input type="range" name="populationMax" class="form-range" min="0" max="10000000" step="100000" value="10000000" oninput="document.getElementById('search-population-max').textContent = this.value;" />
-                        <span id="search-population-max">10000000</span>
+                        <input type="range" name="populationMax" class="form-range" min="0" max="10000000" step="100000" oninput="document.getElementById('search-population-max').textContent = this.value;" value="{{ $searchParams['populationMax'] }}" />
+                        <span id="search-population-max">{{ $searchParams['populationMax'] }}</span>
                     </td>
                 </tr>
                 <tr>
