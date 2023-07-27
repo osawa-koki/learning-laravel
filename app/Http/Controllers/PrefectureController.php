@@ -13,8 +13,9 @@ class PrefectureController extends Controller
     {
         $searcher = new PrefectureSearcher($request);
         $prefectures = $searcher->search();
+        $searchParams = $searcher->getSearchParams();
 
-        return view('prefectures/index', compact('prefectures'));
+        return view('prefectures/index', compact('prefectures'), compact('searchParams'));
     }
 
     public function show($id)
