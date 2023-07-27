@@ -57,42 +57,42 @@
                     <th>人口で検索 (最低)</th>
                     <td>
                         <input type="range" name="populationMin" class="form-range" min="0" max="10000000" step="100" value="{{ $searchParams['populationMin'] }}" oninput="document.getElementById('search-population-min').textContent = this.value;" />
-                        <span id="search-population-min">{{ $searchParams['populationMin'] }}</span>
+                        <span id="search-population-min">{{ integer_prettify($searchParams['populationMin']) }}</span>
                     </td>
                 </tr>
                 <tr>
                     <th>人口で検索 (最高)</th>
                     <td>
                         <input type="range" name="populationMax" class="form-range" min="0" max="15000000" step="100" oninput="document.getElementById('search-population-max').textContent = this.value;" value="{{ $searchParams['populationMax'] }}" />
-                        <span id="search-population-max">{{ $searchParams['populationMax'] }}</span>
+                        <span id="search-population-max">{{ integer_prettify($searchParams['populationMax']) }}</span>
                     </td>
                 </tr>
                 <tr>
                     <th>面積で検索 (最低)</th>
                     <td>
                         <input type="range" name="areaMin" class="form-range" min="0" max="100000" step="100" oninput="document.getElementById('search-area-min').textContent = this.value;" value="{{ $searchParams['areaMin'] }}" />
-                        <span id="search-area-min">{{ $searchParams['areaMin'] }}</span>
+                        <span id="search-area-min">{{ integer_prettify($searchParams['areaMin']) }}</span>
                     </td>
                 </tr>
                 <tr>
                     <th>面積で検索 (最高)</th>
                     <td>
                         <input type="range" name="areaMax" class="form-range" min="0" max="100000" step="100" oninput="document.getElementById('search-area-max').textContent = this.value;" value="{{ $searchParams['areaMax'] }}" />
-                        <span id="search-area-max">{{ $searchParams['areaMax'] }}</span>
+                        <span id="search-area-max">{{ integer_prettify($searchParams['areaMax']) }}</span>
                     </td>
                 </tr>
                 <tr>
                     <th>人口密度で検索 (最低)</th>
                     <td>
                         <input type="range" name="populationDensityMin" class="form-range" min="0" max="300" step="10" oninput="document.getElementById('search-population-density-min').textContent = this.value;" value="{{ $searchParams['populationDensityMin'] }}" />
-                        <span id="search-population-density-min">{{ $searchParams['populationDensityMin'] }}</span>
+                        <span id="search-population-density-min">{{ float_prettify($searchParams['populationDensityMin']) }}</span>
                     </td>
                 </tr>
                 <tr>
                     <th>人口密度で検索 (最高)</th>
                     <td>
                         <input type="range" name="populationDensityMax" class="form-range" min="0" max="300" step="10" oninput="document.getElementById('search-population-density-max').textContent = this.value;" value="{{ $searchParams['populationDensityMax'] }}" />
-                        <span id="search-population-density-max">{{ $searchParams['populationDensityMax'] }}</span>
+                        <span id="search-population-density-max">{{ float_prettify($searchParams['populationDensityMax']) }}</span>
                     </td>
                 </tr>
                 <tr>
