@@ -9,7 +9,7 @@ class PrefectureSearcher
 {
     private ?string $name = null;
 
-    private $capital;
+    private ?string $capital = null;
 
     private $description;
 
@@ -32,7 +32,7 @@ class PrefectureSearcher
     public function __construct(Request $request)
     {
         if ($request->name) $this->name = $request->name;
-        $this->capital = $request->capital;
+        if ($request->capital) $this->capital = $request->capital;
         $this->description = $request->description;
         $this->populationMin = $request->populationMin;
         $this->populationMax = $request->populationMax;

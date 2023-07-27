@@ -47,7 +47,7 @@
                 </tr>
                 <tr>
                     <th>県庁所在地で検索</th>
-                    <td><input type="text" name="capital" class="form-control" placeholder="県庁所在地で検索" /></td>
+                    <td><input type="text" name="capital" class="form-control" placeholder="県庁所在地で検索" value="{{ $searchParams['capital'] }}" /></td>
                 </tr>
                 <tr>
                     <th>説明で検索</th>
