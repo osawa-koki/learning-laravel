@@ -43,6 +43,21 @@ class PrefectureSearcher
         $this->visited = $request->visited;
     }
 
+    public function getSearchParams() {
+        return [
+            'name' => $this->name,
+            'capital' => $this->capital,
+            'description' => $this->description,
+            'populationMin' => $this->populationMin,
+            'populationMax' => $this->populationMax,
+            'areaMin' => $this->areaMin,
+            'areaMax' => $this->areaMax,
+            'populationDensityMin' => $this->populationDensityMin,
+            'populationDensityMax' => $this->populationDensityMax,
+            'visited' => $this->visited,
+        ];
+    }
+
     public function search()
     {
         return $this->buildQuery()->get();

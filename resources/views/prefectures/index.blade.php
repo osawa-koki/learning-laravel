@@ -43,7 +43,7 @@
             <tbody>
                 <tr>
                     <th>都道府県名で検索</th>
-                    <td><input type="text" name="name" class="form-control" placeholder="都道府県名で検索" /></td>
+                    <td><input type="text" name="name" class="form-control" placeholder="都道府県名で検索" value="{{ $searchParams['name'] }}" /></td>
                 </tr>
                 <tr>
                     <th>県庁所在地で検索</th>
