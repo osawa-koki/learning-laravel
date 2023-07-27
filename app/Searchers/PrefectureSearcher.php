@@ -31,15 +31,33 @@ class PrefectureSearcher
 
     public function __construct(Request $request)
     {
-        if ($request->name) $this->name = $request->name;
-        if ($request->capital) $this->capital = $request->capital;
-        if ($request->description) $this->description = $request->description;
-        if ($request->populationMin) $this->populationMin = $request->populationMin;
-        if ($request->populationMax) $this->populationMax = $request->populationMax;
-        if ($request->areaMin) $this->areaMin = $request->areaMin;
-        if ($request->areaMax) $this->areaMax = $request->areaMax;
-        if ($request->populationDensityMin) $this->populationDensityMin = $request->populationDensityMin;
-        if ($request->populationDensityMax) $this->populationDensityMax = $request->populationDensityMax;
+        if ($request->name) {
+            $this->name = $request->name;
+        }
+        if ($request->capital) {
+            $this->capital = $request->capital;
+        }
+        if ($request->description) {
+            $this->description = $request->description;
+        }
+        if ($request->populationMin) {
+            $this->populationMin = $request->populationMin;
+        }
+        if ($request->populationMax) {
+            $this->populationMax = $request->populationMax;
+        }
+        if ($request->areaMin) {
+            $this->areaMin = $request->areaMin;
+        }
+        if ($request->areaMax) {
+            $this->areaMax = $request->areaMax;
+        }
+        if ($request->populationDensityMin) {
+            $this->populationDensityMin = $request->populationDensityMin;
+        }
+        if ($request->populationDensityMax) {
+            $this->populationDensityMax = $request->populationDensityMax;
+        }
         switch ($request->visited) {
             case '0':
                 $this->visited = false;
@@ -53,7 +71,8 @@ class PrefectureSearcher
         }
     }
 
-    public function getSearchParams() {
+    public function getSearchParams()
+    {
         return [
             'name' => $this->name,
             'capital' => $this->capital,
