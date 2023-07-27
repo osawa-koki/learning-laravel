@@ -14,7 +14,7 @@
         <table class="table text-left">
             <tr>
                 <th>県庁所在地</th>
-                <td>$prefecture->capital</td>
+                <td>{{ $prefecture->capital }}</td>
             </tr>
             <tr>
                 <th>説明</th>
