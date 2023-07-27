@@ -1,12 +1,32 @@
 <?php
 
-namespace App\Searchers;
+namespace App\Services;
 
 use App\Models\Prefecture;
 use Illuminate\Http\Request;
 
-class PrefectureSearcher
+enum OrderBy
 {
+    case Id;
+    case Name;
+    case Capital;
+    case Population;
+    case Area;
+    case PopulationDensity;
+}
+
+enum Order
+{
+    case Asc;
+    case Desc;
+}
+
+class PrefectureService
+{
+    private OrderBy $orderBy = OrderBy::Id;
+
+    private Order $order = Order::Asc;
+
     private ?string $name = null;
 
     private ?string $capital = null;
@@ -31,6 +51,23 @@ class PrefectureSearcher
 
     public function __construct(Request $request)
     {
+        if ($request->orderBy) {
+            $this->orderBy = match ($request->orderBy) {
+                'name' => OrderBy::Name,
+                'capital' => OrderBy::Capital,
+                'population' => OrderBy::Population,
+                'area' => OrderBy::Area,
+                'population_density' => OrderBy::PopulationDensity,
+                default => OrderBy::Id,
+            };
+        }
+        if ($request->order) {
+            $this->order = match ($request->order) {
+                'asc' => Order::Asc,
+                'desc' => Order::Desc,
+                default => Order::Asc,
+            };
+        }
         if ($request->name) {
             $this->name = $request->name;
         }
@@ -71,7 +108,7 @@ class PrefectureSearcher
         }
     }
 
-    public function getSearchParams()
+    public function getServiceParams()
     {
         return [
             'name' => $this->name,
@@ -89,7 +126,35 @@ class PrefectureSearcher
 
     public function search()
     {
-        return $this->buildQuery()->get();
+        return $this->buildQuery()->orderBy($this->getOrderBy(), $this->getOrder())->get();
+    }
+
+    private function getOrderBy()
+    {
+        switch ($this->orderBy) {
+            case OrderBy::Id:
+                return 'id';
+            case OrderBy::Name:
+                return 'name';
+            case OrderBy::Capital:
+                return 'capital';
+            case OrderBy::Population:
+                return 'population';
+            case OrderBy::Area:
+                return 'area';
+            case OrderBy::PopulationDensity:
+                return 'population_density';
+        }
+    }
+
+    private function getOrder()
+    {
+        switch ($this->order) {
+            case Order::Asc:
+                return 'asc';
+            case Order::Desc:
+                return 'desc';
+        }
     }
 
     private function buildQuery()

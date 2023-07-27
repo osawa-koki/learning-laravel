@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PrefectureRequest;
 use App\Models\Prefecture;
-use App\Searchers\PrefectureSearcher;
+use App\Services\PrefectureService;
 use Illuminate\Http\Request;
 
 class PrefectureController extends Controller
 {
     public function index(Request $request)
     {
-        $searcher = new PrefectureSearcher($request);
+        $searcher = new PrefectureService($request);
         $prefectures = $searcher->search();
-        $searchParams = $searcher->getSearchParams();
+        $serviceParams = $searcher->getServiceParams();
 
-        return view('prefectures/index', compact('prefectures'), compact('searchParams'));
+        return view('prefectures/index', compact('prefectures'), compact('serviceParams'));
     }
 
     public function show($id)
