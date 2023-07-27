@@ -17,15 +17,15 @@ class PrefectureSearcher
 
     private int $populationMax = 10_000_000;
 
-    private $areaMin;
+    private int $areaMin = 0;
 
-    private $areaMax;
+    private int $areaMax = 100_000;
 
-    private $populationDensityMin;
+    private int $populationDensityMin = 0;
 
-    private $populationDensityMax;
+    private $populationDensityMax = 10_000;
 
-    private $visited;
+    private ?bool $visited = null;
 
     private $active = true;
 
@@ -36,11 +36,21 @@ class PrefectureSearcher
         if ($request->description) $this->description = $request->description;
         if ($request->populationMin) $this->populationMin = $request->populationMin;
         if ($request->populationMax) $this->populationMax = $request->populationMax;
-        $this->areaMin = $request->areaMin;
-        $this->areaMax = $request->areaMax;
-        $this->populationDensityMin = $request->populationDensityMin;
-        $this->populationDensityMax = $request->populationDensityMax;
-        $this->visited = $request->visited;
+        if ($request->areaMin) $this->areaMin = $request->areaMin;
+        if ($request->areaMax) $this->areaMax = $request->areaMax;
+        if ($request->populationDensityMin) $this->populationDensityMin = $request->populationDensityMin;
+        if ($request->populationDensityMax) $this->populationDensityMax = $request->populationDensityMax;
+        switch ($request->visited) {
+            case '0':
+                $this->visited = false;
+                break;
+            case '1':
+                $this->visited = true;
+                break;
+            default:
+                $this->visited = null;
+                break;
+        }
     }
 
     public function getSearchParams() {
@@ -66,6 +76,7 @@ class PrefectureSearcher
     private function buildQuery()
     {
         $query = Prefecture::query();
+        $query->selectRaw('*, (population / area) as population_density');
 
         if ($this->name) {
             $query->where('name', 'LIKE', "%{$this->name}%");
@@ -96,14 +107,14 @@ class PrefectureSearcher
         }
 
         if ($this->populationDensityMin) {
-            $query->where('(population / area)', '>=', $this->populationDensityMin);
+            $query->where('population_density', '>=', $this->populationDensityMin);
         }
 
         if ($this->populationDensityMax) {
-            $query->where('(population / area)', '<=', $this->populationDensityMax);
+            $query->where('population_density', '<=', $this->populationDensityMax);
         }
 
-        if ($this->visited) {
+        if ($this->visited !== null) {
             $query->where('visited', $this->visited);
         }
 
