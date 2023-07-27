@@ -14,6 +14,7 @@ module.exports = {
   "rules": {
   },
   "ignorePatterns": [
-    "vendor"
+    "vendor",
+    "public"
   ]
 }
