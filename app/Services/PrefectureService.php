@@ -1,11 +1,20 @@
 <?php
 
-namespace App\Searchers;
+namespace App\Services;
 
 use App\Models\Prefecture;
 use Illuminate\Http\Request;
 
-class PrefectureSearcher
+enum Sort {
+    case Id;
+    case Name;
+    case Capital;
+    case Population;
+    case Area;
+    case PopulationDensity;
+}
+
+class PrefectureService
 {
     private ?string $name = null;
 
@@ -71,7 +80,7 @@ class PrefectureSearcher
         }
     }
 
-    public function getSearchParams()
+    public function getServiceParams()
     {
         return [
             'name' => $this->name,

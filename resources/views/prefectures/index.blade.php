@@ -43,56 +43,56 @@
             <tbody>
                 <tr>
                     <th>都道府県名で検索</th>
-                    <td><input type="text" name="name" class="form-control" placeholder="都道府県名で検索" value="{{ $searchParams['name'] }}" /></td>
+                    <td><input type="text" name="name" class="form-control" placeholder="都道府県名で検索" value="{{ $serviceParams['name'] }}" /></td>
                 </tr>
                 <tr>
                     <th>県庁所在地で検索</th>
-                    <td><input type="text" name="capital" class="form-control" placeholder="県庁所在地で検索" value="{{ $searchParams['capital'] }}" /></td>
+                    <td><input type="text" name="capital" class="form-control" placeholder="県庁所在地で検索" value="{{ $serviceParams['capital'] }}" /></td>
                 </tr>
                 <tr>
                     <th>説明で検索</th>
-                    <td><input type="text" name="description" class="form-control" placeholder="説明で検索" value="{{ $searchParams['description'] }}" /></td>
+                    <td><input type="text" name="description" class="form-control" placeholder="説明で検索" value="{{ $serviceParams['description'] }}" /></td>
                 </tr>
                 <tr>
                     <th>人口で検索 (最低)</th>
                     <td>
-                        <input type="range" name="populationMin" class="form-range" min="0" max="10000000" step="100" value="{{ $searchParams['populationMin'] }}" oninput="document.getElementById('search-population-min').textContent = this.value;" />
-                        <span id="search-population-min">{{ integer_prettify($searchParams['populationMin']) }}</span>
+                        <input type="range" name="populationMin" class="form-range" min="0" max="10000000" step="100" value="{{ $serviceParams['populationMin'] }}" oninput="document.getElementById('search-population-min').textContent = this.value;" />
+                        <span id="search-population-min">{{ integer_prettify($serviceParams['populationMin']) }}</span>
                     </td>
                 </tr>
                 <tr>
                     <th>人口で検索 (最高)</th>
                     <td>
-                        <input type="range" name="populationMax" class="form-range" min="0" max="15000000" step="100" oninput="document.getElementById('search-population-max').textContent = this.value;" value="{{ $searchParams['populationMax'] }}" />
-                        <span id="search-population-max">{{ integer_prettify($searchParams['populationMax']) }}</span>
+                        <input type="range" name="populationMax" class="form-range" min="0" max="15000000" step="100" oninput="document.getElementById('search-population-max').textContent = this.value;" value="{{ $serviceParams['populationMax'] }}" />
+                        <span id="search-population-max">{{ integer_prettify($serviceParams['populationMax']) }}</span>
                     </td>
                 </tr>
                 <tr>
                     <th>面積で検索 (最低)</th>
                     <td>
-                        <input type="range" name="areaMin" class="form-range" min="0" max="100000" step="100" oninput="document.getElementById('search-area-min').textContent = this.value;" value="{{ $searchParams['areaMin'] }}" />
-                        <span id="search-area-min">{{ integer_prettify($searchParams['areaMin']) }}</span>
+                        <input type="range" name="areaMin" class="form-range" min="0" max="100000" step="100" oninput="document.getElementById('search-area-min').textContent = this.value;" value="{{ $serviceParams['areaMin'] }}" />
+                        <span id="search-area-min">{{ integer_prettify($serviceParams['areaMin']) }}</span>
                     </td>
                 </tr>
                 <tr>
                     <th>面積で検索 (最高)</th>
                     <td>
-                        <input type="range" name="areaMax" class="form-range" min="0" max="100000" step="100" oninput="document.getElementById('search-area-max').textContent = this.value;" value="{{ $searchParams['areaMax'] }}" />
-                        <span id="search-area-max">{{ integer_prettify($searchParams['areaMax']) }}</span>
+                        <input type="range" name="areaMax" class="form-range" min="0" max="100000" step="100" oninput="document.getElementById('search-area-max').textContent = this.value;" value="{{ $serviceParams['areaMax'] }}" />
+                        <span id="search-area-max">{{ integer_prettify($serviceParams['areaMax']) }}</span>
                     </td>
                 </tr>
                 <tr>
                     <th>人口密度で検索 (最低)</th>
                     <td>
-                        <input type="range" name="populationDensityMin" class="form-range" min="0" max="300" step="10" oninput="document.getElementById('search-population-density-min').textContent = this.value;" value="{{ $searchParams['populationDensityMin'] }}" />
-                        <span id="search-population-density-min">{{ float_prettify($searchParams['populationDensityMin']) }}</span>
+                        <input type="range" name="populationDensityMin" class="form-range" min="0" max="300" step="10" oninput="document.getElementById('search-population-density-min').textContent = this.value;" value="{{ $serviceParams['populationDensityMin'] }}" />
+                        <span id="search-population-density-min">{{ float_prettify($serviceParams['populationDensityMin']) }}</span>
                     </td>
                 </tr>
                 <tr>
                     <th>人口密度で検索 (最高)</th>
                     <td>
-                        <input type="range" name="populationDensityMax" class="form-range" min="0" max="300" step="10" oninput="document.getElementById('search-population-density-max').textContent = this.value;" value="{{ $searchParams['populationDensityMax'] }}" />
-                        <span id="search-population-density-max">{{ float_prettify($searchParams['populationDensityMax']) }}</span>
+                        <input type="range" name="populationDensityMax" class="form-range" min="0" max="300" step="10" oninput="document.getElementById('search-population-density-max').textContent = this.value;" value="{{ $serviceParams['populationDensityMax'] }}" />
+                        <span id="search-population-density-max">{{ float_prettify($serviceParams['populationDensityMax']) }}</span>
                     </td>
                 </tr>
                 <tr>
@@ -100,8 +100,8 @@
                     <td>
                         <select name="visited" class="form-select">
                             <option value="">指定なし</option>
-                            <option value="1" @if ($searchParams['visited'] === true) selected @endif>訪問済み</option>
-                            <option value="0" @if ($searchParams['visited'] === false) selected @endif>未訪問</option>
+                            <option value="1" @if ($serviceParams['visited'] === true) selected @endif>訪問済み</option>
+                            <option value="0" @if ($serviceParams['visited'] === false) selected @endif>未訪問</option>
                         </select>
                     </td>
                 </tr>
