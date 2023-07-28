@@ -59,7 +59,7 @@
     </form>
     <hr />
     <h2>食べ物</h2>
-    <form class="d-flex flex-wrap mt-3" action="/foods/{{ $prefecture->id }}" method="post">
+    <form class="d-flex flex-wrap mt-3" action="{{ route('prefectures.destroy', $prefecture->id) }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <input type="hidden" name="_method" value="DELETE" />
         @foreach ($prefecture->foods as $food)

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FoodController;
 use App\Http\Controllers\PrefectureController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,4 @@ Route::get('/hello/{name}', function ($name) {
 });
 
 Route::resource('prefectures', PrefectureController::class);
+Route::resource('foods', FoodController::class);

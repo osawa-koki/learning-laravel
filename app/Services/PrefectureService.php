@@ -10,6 +10,7 @@ enum OrderBy
     case Id;
     case Name;
     case Capital;
+    case Description;
     case Population;
     case Area;
     case PopulationDensity;
@@ -61,6 +62,7 @@ class PrefectureService
             $this->orderBy = match ($request->orderBy) {
                 'name' => OrderBy::Name,
                 'capital' => OrderBy::Capital,
+                'description' => OrderBy::Description,
                 'population' => OrderBy::Population,
                 'area' => OrderBy::Area,
                 'population_density' => OrderBy::PopulationDensity,
@@ -162,6 +164,8 @@ class PrefectureService
                 return 'name';
             case OrderBy::Capital:
                 return 'capital';
+            case OrderBy::Description:
+                return 'description';
             case OrderBy::Population:
                 return 'population';
             case OrderBy::Area:

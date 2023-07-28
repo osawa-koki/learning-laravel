@@ -181,12 +181,12 @@
         </tr>
         @endforeach
     </table>
-    <div><a href="/prefectures/create" class="btn btn-outline-secondary">新規作成</a></div>
+    <div><a href="{{ route('prefectures.create') }}" class="btn btn-outline-secondary">新規作成</a></div>
     <hr class="my-5" />
-    <form action="/prefectures" method="get" class="mt-5">
+    <form action="{{ route('prefectures.index') }}" method="get" class="mt-5">
         <div class="d-flex">
             <button type="submit" class="btn btn-outline-secondary me-3">検索</button>
-            <a href="/prefectures" class="btn btn-secondary me-3">リセット</a>
+            <a href="{{ route('prefectures.index') }}" class="btn btn-secondary me-3">リセット</a>
         </div>
         <table class="table text-left mt-3">
             <tbody>
