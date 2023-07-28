@@ -1,7 +1,7 @@
-<head>
-    <title>{{ $prefecture->name }}</title>
-    @vite(['resources/css/app.css', 'resources/js/app.ts'])
-</head>
+@extends('Layout')
+@section('title', $prefecture->name)
+
+@section('content')
 <div class="container my-5">
     <form action="/prefectures/{{ $prefecture->id }}" method="post">
         <input type="hidden" name="_method" value="PUT" />
@@ -78,3 +78,4 @@
         @endforeach
     </form>
 </div>
+@endsection
