@@ -34,13 +34,13 @@
                             'orderBy' => 'id',
                             'order' => 'asc',
                         ]
-                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
                     <a href="{{ add_query_params(
                         [
                             'orderBy' => 'id',
                             'order' => 'desc',
                         ]
-                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
                 </div>
             </th>
             <th class="text-center">
@@ -51,13 +51,13 @@
                             'orderBy' => 'name',
                             'order' => 'asc',
                         ]
-                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
                     <a href="{{ add_query_params(
                         [
                             'orderBy' => 'name',
                             'order' => 'desc',
                         ]
-                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
                 </div>
             </th>
             <th class="text-center">
@@ -68,13 +68,13 @@
                             'orderBy' => 'capital',
                             'order' => 'asc',
                         ]
-                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
                     <a href="{{ add_query_params(
                         [
                             'orderBy' => 'capital',
                             'order' => 'desc',
                         ]
-                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
                 </div>
             </th>
             <th class="text-center">
@@ -85,13 +85,13 @@
                             'orderBy' => 'description',
                             'order' => 'asc',
                         ]
-                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
                     <a href="{{ add_query_params(
                         [
                             'orderBy' => 'description',
                             'order' => 'desc',
                         ]
-                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
                 </div>
             </th>
             <th class="text-center">
@@ -102,13 +102,13 @@
                             'orderBy' => 'population',
                             'order' => 'asc',
                         ]
-                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
                     <a href="{{ add_query_params(
                         [
                             'orderBy' => 'population',
                             'order' => 'desc',
                         ]
-                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
                 </div>
             </th>
             <th class="text-center">
@@ -119,13 +119,13 @@
                             'orderBy' => 'area',
                             'order' => 'asc',
                         ]
-                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
                     <a href="{{ add_query_params(
                         [
                             'orderBy' => 'area',
                             'order' => 'desc',
                         ]
-                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
                 </div>
             </th>
             <th class="text-center">
@@ -136,13 +136,13 @@
                             'orderBy' => 'population_density',
                             'order' => 'asc',
                         ]
-                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
                     <a href="{{ add_query_params(
                         [
                             'orderBy' => 'population_density',
                             'order' => 'desc',
                         ]
-                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
                 </div>
             </th>
             <th class="text-center">
@@ -153,13 +153,13 @@
                             'orderBy' => 'visited',
                             'order' => 'asc',
                         ]
-                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
                     <a href="{{ add_query_params(
                         [
                             'orderBy' => 'visited',
                             'order' => 'desc',
                         ]
-                    ) }}"><i class="bi bi-arrow-up-circle"></i></a>
+                    ) }}"><i class="bi bi-arrow-down-circle"></i></a>
                 </div>
             </th>
         </tr>
