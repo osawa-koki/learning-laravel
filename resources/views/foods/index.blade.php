@@ -4,6 +4,25 @@
 @section('content')
 <div class="container my-5">
     <h1>食べ物一覧</h1>
+    <nav>
+        <ul class="pagination pagination-sm">
+            @for ($i = 3; $i >= 1; $i--)
+                @if ($pagination['currentPage'] - $i > 0)
+                    <li class="page-item"><a class="page-link" href="{{ add_query_params(['page' => $pagination['currentPage'] - $i]) }}">{{ $pagination['currentPage'] - $i }}</a></li>
+                @else
+                   <li class="page-item disabled"><a class="page-link">-</a></li>
+                @endif
+            @endfor
+            <li class="page-item mx-3 disabled"><a class="page-link" href="{{ add_query_params(['page' => $pagination['currentPage']]) }}">{{ $pagination['currentPage'] }}</a></li>
+            @for ($i = 1; $i <= 3; $i++)
+            @if ($pagination['currentPage'] + $i <= $pagination['totalPages'])
+                <li class="page-item"><a class="page-link" href="{{ add_query_params(['page' => $pagination['currentPage'] + $i]) }}">{{ $pagination['currentPage'] + $i }}</a></li>
+            @else
+                <li class="page-item disabled"><a class="page-link">-</a></li>
+            @endif
+        @endfor
+        </ul>
+    </nav>
     <table class="table text-center">
         <tr>
             <th>

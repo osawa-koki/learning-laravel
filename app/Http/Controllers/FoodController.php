@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FoodRequest;
 use App\Models\Food;
 use App\Models\Prefecture;
+use App\Services\FoodService;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
 {
     public function index(Request $request)
     {
-        $foods = Food::all();
+        $searcher = new FoodService($request);
+        $data = $searcher->search();
+        $foods = $data['foods'];
+        $pagination = $data['pagination'];
+        $serviceParams = $searcher->getServiceParams();
 
-        return view('foods/index', compact('foods'));
+        return view('foods/index', compact('foods', 'pagination', 'serviceParams'));
     }
 
     public function show($id)
