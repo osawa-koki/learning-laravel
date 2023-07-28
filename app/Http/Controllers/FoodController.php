@@ -38,4 +38,11 @@ class FoodController extends Controller
 
         return redirect("/foods/{$food->id}");
     }
+
+    public function edit($id)
+    {
+        $food = Food::findOrFail($id);
+        $prefectures = Prefecture::all();
+        return view('foods/edit', compact('food', 'prefectures'));
+    }
 }

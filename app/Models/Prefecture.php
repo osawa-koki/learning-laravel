@@ -15,4 +15,10 @@ class Prefecture extends Model
     {
         return $this->hasMany(Food::class);
     }
+
+    public function delete()
+    {
+        $this->foods()->delete();
+        return parent::delete();
+    }
 }
