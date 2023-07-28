@@ -5,9 +5,11 @@
 <div class="container">
     <h1 class="mt-5">{{ $prefecture->name }}</h1>
     <div class="d-flex my-3">
+        <a href="/prefectures/{{ $prefecture->id }}/edit" class="btn btn-outline-secondary me-3">編集</a>
         <a href="/prefectures" class="btn btn-outline-primary me-3">一覧画面</a>
         <a href="/prefectures/create" class="btn btn-outline-info me-3">新規作成</a>
     </div>
+    <h2>詳細</h2>
     <form action="/prefectures/{{ $prefecture->id }}" method="post">
         <input type="hidden" name="_method" value="PUT" />
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -45,8 +47,15 @@
                 </td>
             </tr>
         </table>
-        <div class="d-block">
-            <a href="/prefectures/{{ $prefecture->id }}/edit" class="btn btn-outline-secondary">編集</a>
-        </div>
     </form>
+    <hr />
+    <h2>食べ物</h2>
+    @foreach ($prefecture->foods as $food)
+    <div class="card my-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ $food->name }}</h5>
+            <p class="card-text">{{ $food->description }}</p>
+        </div>
+    </div>
+    @endforeach
 </div>

@@ -4,15 +4,16 @@
 </head>
 <div class="container">
     <form action="/prefectures/{{ $prefecture->id }}" method="post">
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <h1 class="mt-5">
             <input type="text" name="name" class="form-control" value="{{ $prefecture->name }}" />
         </h1>
         <div class="d-flex my-3">
+            <button type="submit" class="btn btn-outline-secondary me-3">更新</button>
             <a href="/prefectures" class="btn btn-outline-primary me-3">一覧画面</a>
             <a href="/prefectures/create" class="btn btn-outline-info me-3">新規作成</a>
         </div>
-        <input type="hidden" name="_method" value="PUT" />
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <table class="table text-left">
             <tr>
                 <th>県庁所在地</th>
@@ -50,10 +51,6 @@
                 </td>
             </tr>
         </table>
-        <div class="d-flex">
-            <a href="/prefectures/{{ $prefecture->id }}" class="btn btn-outline-info me-3">詳細</a>
-            <button type="submit" class="btn btn-outline-secondary me-3">更新</button>
-        </div>
     </form>
     <form action="/prefectures/{{ $prefecture->id }}" method="post">
         <input type="hidden" name="_method" value="DELETE" />
