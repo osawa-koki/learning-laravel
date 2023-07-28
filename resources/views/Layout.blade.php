@@ -9,7 +9,10 @@
 </head>
 <body>
     @yield('content')
-    <a href="/" class="btn btn-outline-primary m-2"># Home</a>
+    <div class="d-flex">
+        <a href="/" class="btn btn-outline-primary m-2"># Home</a>
+        <a href="{{ route('prefectures.index') }}" class="btn btn-outline-primary m-2"># Prefectures</a>
+    </div>
     <footer class="w-100 d-flex justify-content-center align-items-center p-5 bg-secondary bg-gradient">
         <a class="text-light" href="https://github.com/osawa-koki" target="_blank" rel="noopener noreferrer">@osawa-koki</a>
     </footer>

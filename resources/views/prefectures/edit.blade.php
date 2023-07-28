@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container my-5">
-    <form action="/prefectures/{{ $prefecture->id }}" method="post">
+    <form action="{{ route('prefectures.update', $prefecture->id) }}" method="post">
         <input type="hidden" name="_method" value="PUT" />
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <h1 class="mt-5">
@@ -11,8 +11,8 @@
         </h1>
         <div class="d-flex my-3">
             <button type="submit" class="btn btn-outline-secondary me-3">更新</button>
-            <a href="/prefectures" class="btn btn-outline-primary me-3">一覧画面</a>
-            <a href="/prefectures/create" class="btn btn-outline-info me-3">新規作成</a>
+            <a href="{{ route('prefectures.index') }}" class="btn btn-outline-primary me-3">一覧画面</a>
+            <a href="{{ route('prefectures.create') }}" class="btn btn-outline-info me-3">新規作成</a>
         </div>
         <table class="table text-left">
             <tr>

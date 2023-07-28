@@ -5,9 +5,9 @@
 <div class="container my-5">
     <h1 class="mt-5">新規作成</h1>
     <div class="d-flex my-3">
-        <a href="/prefectures" class="btn btn-outline-primary me-3">一覧画面</a>
+        <a href="{{ route('prefectures.index') }}" class="btn btn-outline-primary me-3">一覧画面</a>
     </div>
-    <form action="/prefectures" method="post">
+    <form action="{{ route('prefectures.create') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <table class="table text-left">
             <tr>
