@@ -34,6 +34,7 @@ class FoodController extends Controller
     {
         $food = new Food();
         $food->name = $request->name;
+        $food->description = $request->description;
         $food->prefecture_id = $request->prefecture_id;
         $food->save();
 
@@ -46,5 +47,24 @@ class FoodController extends Controller
         $prefectures = Prefecture::all();
 
         return view('foods/edit', compact('food', 'prefectures'));
+    }
+
+    public function update(FoodRequest $request, $id)
+    {
+        $food = Food::findOrFail($id);
+        $food->name = $request->name;
+        $food->description = $request->description;
+        $food->prefecture_id = $request->prefecture_id;
+        $food->save();
+
+        return redirect("/foods/{$food->id}");
+    }
+
+    public function destroy($id)
+    {
+        $food = Food::findOrFail($id);
+        $food->delete();
+
+        return redirect('/foods');
     }
 }
