@@ -21,10 +21,15 @@ enum Order
 class FoodService
 {
     private int $page = 1;
+
     private OrderBy $orderBy = OrderBy::Id;
+
     private Order $order = Order::Asc;
+
     private ?string $name = null;
+
     private ?string $description = null;
+
     private ?int $prefectureId = null;
 
     public function __construct(Request $request)
