@@ -23,6 +23,8 @@ class FoodRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:10',
+            'description' => 'nullable|string|max:100',
+            'prefecture_id' => 'required|integer|exists:prefectures,id',
         ];
     }
 }

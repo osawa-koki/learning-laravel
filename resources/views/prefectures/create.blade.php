@@ -1,13 +1,13 @@
 @extends('Layout')
-@section('title', '新規作成')
+@section('title', '新規作成 (Prefecture)')
 
 @section('content')
 <div class="container my-5">
-    <h1 class="mt-5">新規作成</h1>
+    <h1 class="mt-5">新規作成 (Prefecture)</h1>
     <div class="d-flex my-3">
         <a href="{{ route('prefectures.index') }}" class="btn btn-outline-primary me-3">一覧画面</a>
     </div>
-    <form action="{{ route('prefectures.create') }}" method="post">
+    <form action="{{ route('prefectures.store') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <table class="table text-left">
             <tr>
