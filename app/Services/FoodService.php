@@ -128,6 +128,10 @@ class FoodService
             $query->where('description', 'LIKE', "%{$this->description}%");
         }
 
+        if ($this->prefectureId) {
+            $query->where('prefecture_id', $this->prefectureId);
+        }
+
         return $query;
     }
 }

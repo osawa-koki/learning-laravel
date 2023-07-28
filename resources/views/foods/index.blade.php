@@ -104,5 +104,35 @@
         @endforeach
     </table>
     <div><a href="{{ route('foods.create') }}" class="btn btn-outline-secondary">新規作成</a></div>
+    <hr class="my-5" />
+    <form action="{{ route('foods.index') }}" method="get" class="mt-5">
+        <div class="d-flex">
+            <button type="submit" class="btn btn-outline-secondary me-3">検索</button>
+            <a href="{{ route('foods.index') }}" class="btn btn-secondary me-3">リセット</a>
+        </div>
+        <table class="table text-left mt-3">
+            <tbody>
+                <tr>
+                    <th>名前で検索</th>
+                    <td><input type="text" name="name" class="form-control" placeholder="都道府県名で検索" value="{{ $serviceParams['name'] }}" /></td>
+                </tr>
+                <tr>
+                    <th>説明で検索</th>
+                    <td><input type="text" name="description" class="form-control" placeholder="説明で検索" value="{{ $serviceParams['description'] }}" /></td>
+                </tr>
+                <tr>
+                    <th>都道府県で検索</th>
+                    <td>
+                        <select name="prefecture_id" class="form-select">
+                            <option value="">全て</option>
+                            @foreach($prefectures as $prefecture)
+                            <option value="{{ $prefecture['id'] }}" @if ($prefecture['id'] == $serviceParams['prefecture_id']) selected @endif>{{ $prefecture['name'] }}</option>
+                            @endforeach
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
 </div>
 @endsection
