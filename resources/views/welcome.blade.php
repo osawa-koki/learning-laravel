@@ -12,6 +12,13 @@
                 </div>
             </div>
         </a>
+        <a class="text-decoration-none" href="{{ route('foods.index') }}">
+            <div class="card me-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title m-2">Food</h5>
+                </div>
+            </div>
+        </a>
     </div>
 </div>
 @endsection
