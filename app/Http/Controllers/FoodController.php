@@ -18,7 +18,7 @@ class FoodController extends Controller
         $pagination = $data['pagination'];
         $serviceParams = $searcher->getServiceParams();
 
-        $prefectures = Prefecture::all()->toArray();
+        $prefectures = Prefecture::all();
 
         return view('foods/index', compact('foods', 'prefectures', 'pagination', 'serviceParams'));
     }
