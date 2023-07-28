@@ -16,6 +16,13 @@ class FoodController extends Controller
         return view('foods/index', compact('foods'));
     }
 
+    public function show($id)
+    {
+        $food = Food::findOrFail($id);
+
+        return view('foods/show', compact('food'));
+    }
+
     public function create()
     {
         $prefectures = Prefecture::all();
