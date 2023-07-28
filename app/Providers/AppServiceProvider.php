@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        Schema::enableForeignKeyConstraints();
+        // Schema::enableForeignKeyConstraints();
     }
 
     /**
