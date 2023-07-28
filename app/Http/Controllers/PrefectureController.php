@@ -12,10 +12,12 @@ class PrefectureController extends Controller
     public function index(Request $request)
     {
         $searcher = new PrefectureService($request);
-        $prefectures = $searcher->search();
+        $data = $searcher->search();
+        $prefectures = $data['prefectures'];
+        $pagination = $data['pagination'];
         $serviceParams = $searcher->getServiceParams();
 
-        return view('prefectures/index', compact('prefectures'), compact('serviceParams'));
+        return view('prefectures/index', compact('prefectures', 'pagination', 'serviceParams'));
     }
 
     public function show($id)

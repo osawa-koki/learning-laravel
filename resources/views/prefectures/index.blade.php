@@ -5,6 +5,25 @@
 </head>
 <div class="container mt-5">
     <h1>都道府県一覧</h1>
+    <nav>
+        <ul class="pagination pagination-sm">
+            @for ($i = 3; $i >= 1; $i--)
+                @if ($pagination['currentPage'] - $i > 0)
+                    <li class="page-item"><a class="page-link" href="{{ add_query_params(['page' => $pagination['currentPage'] - $i]) }}">{{ $pagination['currentPage'] - $i }}</a></li>
+                @else
+                   <li class="page-item disabled"><a class="page-link">-</a></li>
+                @endif
+            @endfor
+            <li class="page-item mx-3 disabled"><a class="page-link" href="{{ add_query_params(['page' => $pagination['currentPage']]) }}">{{ $pagination['currentPage'] }}</a></li>
+            @for ($i = 1; $i <= 3; $i++)
+            @if ($pagination['currentPage'] + $i <= $pagination['totalPages'])
+                <li class="page-item"><a class="page-link" href="{{ add_query_params(['page' => $pagination['currentPage'] + $i]) }}">{{ $pagination['currentPage'] + $i }}</a></li>
+            @else
+                <li class="page-item disabled"><a class="page-link">-</a></li>
+            @endif
+        @endfor
+        </ul>
+    </nav>
     <table class="table text-center">
         <tr>
             <th>
@@ -146,15 +165,15 @@
         </tr>
         @foreach($prefectures as $prefecture)
         <tr>
-            <td>{{ $prefecture->id }}</td>
-            <td><a href="/prefectures/{{ $prefecture->id }}">{{ $prefecture->name }}</a></td>
-            <td>{{ $prefecture->capital }}</td>
-            <td>{{ description_shorten($prefecture->description) }}</td>
-            <td>{{ integer_prettify($prefecture->population )}}</td>
-            <td>{{ integer_prettify($prefecture->area) }}</td>
-            <td>{{ float_prettify($prefecture->population / $prefecture->area) }}</td>
+            <td>{{ $prefecture['id'] }}</td>
+            <td><a href="/prefectures/{{ $prefecture['id'] }}">{{ $prefecture['name'] }}</a></td>
+            <td>{{ $prefecture['capital'] }}</td>
+            <td>{{ description_shorten($prefecture['description']) }}</td>
+            <td>{{ integer_prettify($prefecture['population'] )}}</td>
+            <td>{{ integer_prettify($prefecture['area']) }}</td>
+            <td>{{ float_prettify($prefecture['population'] / $prefecture['area']) }}</td>
             <td>
-                @if ($prefecture->visited)
+                @if ($prefecture['visited'])
                 <span class="badge bg-primary">🟢 訪問済</span>
                 @else
                 <span class="badge bg-danger">🟡 未訪問</span>
