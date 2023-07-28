@@ -2,7 +2,7 @@
     <title>新規作成</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<div class="container">
+<div class="container my-5">
     <h1 class="mt-5">新規作成</h1>
     <div class="d-flex my-3">
         <a href="/prefectures" class="btn btn-outline-primary me-3">一覧画面</a>

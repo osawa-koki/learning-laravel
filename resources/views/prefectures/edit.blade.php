@@ -2,7 +2,7 @@
     <title>{{ $prefecture->name }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<div class="container">
+<div class="container my-5">
     <form action="/prefectures/{{ $prefecture->id }}" method="post">
         <input type="hidden" name="_method" value="PUT" />
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />

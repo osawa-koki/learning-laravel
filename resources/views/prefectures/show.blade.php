@@ -2,7 +2,7 @@
     <title>{{ $prefecture->name }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<div class="container">
+<div class="container my-5">
     <h1 class="mt-5">{{ $prefecture->name }}</h1>
     <div class="d-flex my-3">
         <a href="/prefectures/{{ $prefecture->id }}/edit" class="btn btn-outline-secondary me-3">編集</a>
@@ -50,12 +50,14 @@
     </form>
     <hr />
     <h2>食べ物</h2>
-    @foreach ($prefecture->foods as $food)
-    <div class="card my-3">
-        <div class="card-body">
-            <h5 class="card-title">{{ $food->name }}</h5>
-            <p class="card-text">{{ $food->description }}</p>
+    <div class="d-flex flex-wrap mt-3">
+        @foreach ($prefecture->foods as $food)
+        <div class="card me-3 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ $food->name }}</h5>
+                <p class="card-text">{{ $food->description }}</p>
+            </div>
         </div>
+        @endforeach
     </div>
-    @endforeach
 </div>

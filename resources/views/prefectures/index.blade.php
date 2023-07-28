@@ -3,7 +3,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
-<div class="container mt-5">
+<div class="container my-5">
     <h1>都道府県一覧</h1>
     <nav>
         <ul class="pagination pagination-sm">
