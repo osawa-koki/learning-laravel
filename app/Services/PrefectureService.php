@@ -24,6 +24,7 @@ enum Order
 class PrefectureService
 {
     private int $page = 1;
+
     private OrderBy $orderBy = OrderBy::Id;
 
     private Order $order = Order::Asc;
@@ -138,6 +139,7 @@ class PrefectureService
         $currentPage = $this->page;
 
         $prefectures = array_slice($prefectures, $offset, $perPage);
+
         return [
             'prefectures' => $prefectures,
             'pagination' => [
@@ -145,7 +147,7 @@ class PrefectureService
                 'totalPages' => $totalPages,
                 'currentPage' => $currentPage,
                 'perPage' => $perPage,
-            ]
+            ],
         ];
     }
 
