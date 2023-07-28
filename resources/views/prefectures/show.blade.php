@@ -1,6 +1,7 @@
 <head>
     <title>{{ $prefecture->name }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
 <div class="container my-5">
     <h1 class="mt-5">{{ $prefecture->name }}</h1>
@@ -54,7 +55,10 @@
         @foreach ($prefecture->foods as $food)
         <div class="card me-3 mb-3">
             <div class="card-body">
-                <h5 class="card-title">{{ $food->name }}</h5>
+                <div class="d-flex align-items-center">
+                    <a href="/foods/{{ $food->id }}"><i class="bi bi-link-45deg"></i></a>
+                    <h5 class="card-title m-2">{{ $food->name }}</h5>
+                </div>
                 <p class="card-text">{{ $food->description }}</p>
             </div>
         </div>

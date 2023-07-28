@@ -1,6 +1,7 @@
 <head>
     <title>{{ $prefecture->name }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
 <div class="container my-5">
     <form action="/prefectures/{{ $prefecture->id }}" method="post">
@@ -56,5 +57,25 @@
         <input type="hidden" name="_method" value="DELETE" />
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <button type="submit" class="btn btn-outline-danger w-100" onclick="return confirm('削除しますか？')">削除</button>
+    </form>
+    <hr />
+    <h2>食べ物</h2>
+    <form class="d-flex flex-wrap mt-3" action="/foods/{{ $prefecture->id }}" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <input type="hidden" name="_method" value="DELETE" />
+        @foreach ($prefecture->foods as $food)
+        <div class="card me-3 mb-3">
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-around">
+                    <h5 class="card-title m-2">{{ $food->name }}</h5>
+                    <!-- <i class="bi bi-trash3-fill text-danger" role="button"></i> -->
+                    <button type="submit" class="btn btn-outline-danger" onclick="return confirm('削除しますか？')">
+                        <i class="bi bi-trash3-fill"></i>
+                    </button>
+                </div>
+                <p class="card-text">{{ $food->description }}</p>
+            </div>
+        </div>
+        @endforeach
     </form>
 </div>
