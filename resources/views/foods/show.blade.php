@@ -23,7 +23,7 @@
             <tr>
                 <th>都道府県</th>
                 <td>
-                    {{ $food['prefecture']->name }} ({{ $food['prefecture']->capital }})
+                    <a href="{{ route('prefectures.show', $food['prefecture']->id) }}">{{ $food['prefecture']->name }} ({{ $food['prefecture']->capital }})</a>
                 </td>
             </tr>
         </table>
