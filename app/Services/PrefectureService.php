@@ -13,6 +13,7 @@ enum OrderBy
     case Population;
     case Area;
     case PopulationDensity;
+    case Visited;
 }
 
 enum Order
@@ -63,6 +64,7 @@ class PrefectureService
                 'population' => OrderBy::Population,
                 'area' => OrderBy::Area,
                 'population_density' => OrderBy::PopulationDensity,
+                'visited' => OrderBy::Visited,
                 default => OrderBy::Id,
             };
         }
@@ -166,6 +168,8 @@ class PrefectureService
                 return 'area';
             case OrderBy::PopulationDensity:
                 return 'population_density';
+            case OrderBy::Visited:
+                return 'visited';
         }
     }
 
