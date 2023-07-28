@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FoodRequest;
 use App\Models\Food;
 use App\Models\Prefecture;
-use App\Services\FoodService;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
@@ -13,6 +12,7 @@ class FoodController extends Controller
     public function index(Request $request)
     {
         $foods = Food::all();
+
         return view('foods/index', compact('foods'));
     }
 
@@ -26,6 +26,7 @@ class FoodController extends Controller
     public function create()
     {
         $prefectures = Prefecture::all();
+
         return view('foods/create', compact('prefectures'));
     }
 
@@ -43,6 +44,7 @@ class FoodController extends Controller
     {
         $food = Food::findOrFail($id);
         $prefectures = Prefecture::all();
+
         return view('foods/edit', compact('food', 'prefectures'));
     }
 }

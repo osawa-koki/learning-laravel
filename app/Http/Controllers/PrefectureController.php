@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PrefectureRequest;
 use App\Models\Prefecture;
-use App\Models\Food;
 use App\Services\PrefectureService;
 use Illuminate\Http\Request;
 

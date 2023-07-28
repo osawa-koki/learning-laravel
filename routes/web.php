@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\PrefectureController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\PrefectureController;
 use Illuminate\Support\Facades\Route;
 
 /*

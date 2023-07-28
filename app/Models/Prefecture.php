@@ -19,6 +19,7 @@ class Prefecture extends Model
     public function delete()
     {
         $this->foods()->delete();
+
         return parent::delete();
     }
 }
