@@ -1,7 +1,7 @@
-<head>
-    <title>{{ $prefecture->name }}</title>
-    @vite(['resources/css/app.css', 'resources/js/app.ts'])
-</head>
+@extends('Layout')
+@section('title', $prefecture->name)
+
+@section('content')
 <div class="container my-5">
     <h1 class="mt-5">{{ $prefecture->name }}</h1>
     <div class="d-flex my-3">
@@ -64,3 +64,4 @@
         @endforeach
     </div>
 </div>
+@endsection

@@ -1,7 +1,7 @@
-<head>
-    <title>都道府県一覧</title>
-    @vite(['resources/css/app.css', 'resources/js/app.ts'])
-</head>
+@extends('Layout')
+@section('title', '都道府県一覧')
+
+@section('content')
 <div class="container my-5">
     <h1>都道府県一覧</h1>
     <nav>
@@ -258,3 +258,4 @@
         </table>
     </form>
 </div>
+@endsection
