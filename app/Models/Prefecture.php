@@ -10,4 +10,9 @@ class Prefecture extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function foods()
+    {
+        return $this->hasMany(Food::class);
+    }
 }

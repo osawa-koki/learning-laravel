@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->foreign('prefecture_id').references('id').on('prefectures');
+            $table->string('description')->nullable()->default(null);
+            $table->foreignId('prefecture_id')->constrained()->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('xxxxxs');
+        Schema::dropIfExists('foods');
     }
 };
