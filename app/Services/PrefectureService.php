@@ -131,7 +131,7 @@ class PrefectureService
     public function search()
     {
         $prefectures = $this->buildQuery()->orderBy($this->getOrderBy(), $this->getOrder())->get()->toArray();
-        $perPage = 10;
+        $perPage = config('app.pagination.per_page');
         $offset = ($this->page - 1) * $perPage;
         $totalCount = count($prefectures);
         $totalPages = ceil($totalCount / $perPage);
