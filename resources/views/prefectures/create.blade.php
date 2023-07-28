@@ -1,6 +1,6 @@
 <head>
     <title>新規作成</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
 <div class="container my-5">
     <h1 class="mt-5">新規作成</h1>
