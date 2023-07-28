@@ -5,9 +5,9 @@
 <div class="container my-5">
     <h1 class="mt-5">{{ $prefecture->name }}</h1>
     <div class="d-flex my-3">
-        <a href="/prefectures/{{ $prefecture->id }}/edit" class="btn btn-outline-secondary me-3">編集</a>
-        <a href="/prefectures" class="btn btn-outline-primary me-3">一覧画面</a>
-        <a href="/prefectures/create" class="btn btn-outline-info me-3">新規作成</a>
+        <a href="{{ route('prefectures.edit', $prefecture->id) }}" class="btn btn-outline-secondary me-3">編集</a>
+        <a href="{{ route('prefectures.index') }}" class="btn btn-outline-primary me-3">一覧画面</a>
+        <a href="{{ route('prefectures.create') }}" class="btn btn-outline-info me-3">新規作成</a>
     </div>
     <h2>詳細</h2>
     <form action="/prefectures/{{ $prefecture->id }}" method="post">
