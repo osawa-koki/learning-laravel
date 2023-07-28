@@ -23,6 +23,8 @@ enum Order
 
 class PrefectureService
 {
+    private int $page = 1;
+
     private OrderBy $orderBy = OrderBy::Id;
 
     private Order $order = Order::Asc;
@@ -51,6 +53,9 @@ class PrefectureService
 
     public function __construct(Request $request)
     {
+        if ($request->page) {
+            $this->page = $request->page;
+        }
         if ($request->orderBy) {
             $this->orderBy = match ($request->orderBy) {
                 'name' => OrderBy::Name,
@@ -126,7 +131,24 @@ class PrefectureService
 
     public function search()
     {
-        return $this->buildQuery()->orderBy($this->getOrderBy(), $this->getOrder())->get();
+        $prefectures = $this->buildQuery()->orderBy($this->getOrderBy(), $this->getOrder())->get()->toArray();
+        $perPage = config('app.pagination.per_page');
+        $offset = ($this->page - 1) * $perPage;
+        $totalCount = count($prefectures);
+        $totalPages = ceil($totalCount / $perPage);
+        $currentPage = $this->page;
+
+        $prefectures = array_slice($prefectures, $offset, $perPage);
+
+        return [
+            'prefectures' => $prefectures,
+            'pagination' => [
+                'totalCount' => $totalCount,
+                'totalPages' => $totalPages,
+                'currentPage' => $currentPage,
+                'perPage' => $perPage,
+            ],
+        ];
     }
 
     private function getOrderBy()
