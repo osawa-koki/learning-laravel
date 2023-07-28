@@ -1,18 +1,20 @@
 <head>
     <title>{{ $prefecture->name }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
-<div class="container">
+<div class="container my-5">
     <form action="/prefectures/{{ $prefecture->id }}" method="post">
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <h1 class="mt-5">
             <input type="text" name="name" class="form-control" value="{{ $prefecture->name }}" />
         </h1>
         <div class="d-flex my-3">
+            <button type="submit" class="btn btn-outline-secondary me-3">更新</button>
             <a href="/prefectures" class="btn btn-outline-primary me-3">一覧画面</a>
             <a href="/prefectures/create" class="btn btn-outline-info me-3">新規作成</a>
         </div>
-        <input type="hidden" name="_method" value="PUT" />
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <table class="table text-left">
             <tr>
                 <th>県庁所在地</th>
@@ -50,14 +52,30 @@
                 </td>
             </tr>
         </table>
-        <div class="d-flex">
-            <a href="/prefectures/{{ $prefecture->id }}" class="btn btn-outline-info me-3">詳細</a>
-            <button type="submit" class="btn btn-outline-secondary me-3">更新</button>
-        </div>
     </form>
     <form action="/prefectures/{{ $prefecture->id }}" method="post">
         <input type="hidden" name="_method" value="DELETE" />
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <button type="submit" class="btn btn-outline-danger w-100" onclick="return confirm('削除しますか？')">削除</button>
+    </form>
+    <hr />
+    <h2>食べ物</h2>
+    <form class="d-flex flex-wrap mt-3" action="/foods/{{ $prefecture->id }}" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <input type="hidden" name="_method" value="DELETE" />
+        @foreach ($prefecture->foods as $food)
+        <div class="card me-3 mb-3">
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-around">
+                    <h5 class="card-title m-2">{{ $food->name }}</h5>
+                    <!-- <i class="bi bi-trash3-fill text-danger" role="button"></i> -->
+                    <button type="submit" class="btn btn-outline-danger" onclick="return confirm('削除しますか？')">
+                        <i class="bi bi-trash3-fill"></i>
+                    </button>
+                </div>
+                <p class="card-text">{{ $food->description }}</p>
+            </div>
+        </div>
+        @endforeach
     </form>
 </div>

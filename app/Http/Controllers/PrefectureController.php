@@ -57,7 +57,7 @@ class PrefectureController extends Controller
         $prefecture->visited = $request->visited;
         $prefecture->save();
 
-        return redirect('/prefectures');
+        return redirect("/prefectures/{$prefecture->id}");
     }
 
     public function edit($id)

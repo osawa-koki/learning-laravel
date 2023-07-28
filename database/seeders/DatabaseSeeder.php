@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(PrefecturesTableSeeder::class);
+        $this->call(FoodsTableSeeder::class);
     }
 }
