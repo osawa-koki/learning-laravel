@@ -114,7 +114,7 @@
             <tbody>
                 <tr>
                     <th>名前で検索</th>
-                    <td><input type="text" name="name" class="form-control" placeholder="都道府県名で検索" value="{{ $serviceParams['name'] }}" /></td>
+                    <td><input type="text" name="name" class="form-control" placeholder="名前で検索" value="{{ $serviceParams['name'] }}" /></td>
                 </tr>
                 <tr>
                     <th>説明で検索</th>

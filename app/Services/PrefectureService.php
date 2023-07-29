@@ -39,7 +39,7 @@ class PrefectureService
 
     private int $populationMin = 0;
 
-    private int $populationMax = 10_000_000;
+    private int $populationMax = 15_000_000;
 
     private int $areaMin = 0;
 
