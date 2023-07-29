@@ -29,3 +29,37 @@ touch ./database/database.sqlite && php artisan migrate && php artisan db:seed
 # サーバの起動
 php artisan serve --host=localhost --port=8000
 ```
+
+## 説明イロイロ
+
+```shell
+# プロジェクトの作成
+composer create-project laravel/laravel ⭐️プロジェクト名⭐️
+
+# プロジェクトの起動
+php artisan serve --host=localhost --port=8000
+
+# データベースの作成
+touch ./database/database.sqlite
+
+# マイグレーション
+php artisan migrate
+
+# シーディング
+php artisan db:seed
+
+# マイグレーションファイルの作成
+php artisan make:migration ⭐️マイグレーション名⭐️
+
+# モデルの作成
+php artisan make:model ⭐️モデル名⭐️
+
+# コントローラの作成
+php artisan make:controller ⭐️コントローラ名⭐️
+
+# リソースコントローラの作成
+php artisan make:controller ⭐️コントローラ名⭐️ --resource
+
+# シーダーファイルの作成
+php artisan make:seeder ⭐️シーダー名⭐️
+```
