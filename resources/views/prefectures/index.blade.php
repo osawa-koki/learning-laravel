@@ -205,7 +205,7 @@
                 <tr>
                     <th>人口で検索 (最低)</th>
                     <td>
-                        <input type="range" name="populationMin" class="form-range" min="0" max="10000000" step="100" value="{{ $serviceParams['populationMin'] }}" oninput="document.getElementById('search-population-min').textContent = window.integerPrettify(this.value);" />
+                        <input type="range" name="populationMin" class="form-range" min="0" max="15000000" step="100" value="{{ $serviceParams['populationMin'] }}" oninput="document.getElementById('search-population-min').textContent = window.integerPrettify(this.value);" />
                         <span id="search-population-min">{{ integer_prettify($serviceParams['populationMin']) }}</span>
                     </td>
                 </tr>
